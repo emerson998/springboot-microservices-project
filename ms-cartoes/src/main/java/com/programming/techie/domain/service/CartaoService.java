@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.programming.techie.domain.Cartao;
+import com.programming.techie.domain.entity.Cartao;
 import com.programming.techie.domain.repository.CartaoRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -28,6 +28,6 @@ public class CartaoService {
 		
 		return cartaoRepository.findByRendaLessThanEqual(rendaDecimal);
 	}
-	
+
 	
 }

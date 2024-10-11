@@ -1,4 +1,4 @@
-package com.programming.techie.domain;
+package com.programming.techie.domain.entity;
 
 import java.math.BigDecimal;
 

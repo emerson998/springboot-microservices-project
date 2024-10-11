@@ -2,7 +2,7 @@ package com.programming.techie.domain.model;
 
 import java.math.BigDecimal;
 
-import com.programming.techie.domain.Cartao;
+import com.programming.techie.domain.entity.Cartao;
 import com.programming.techie.domain.enumerator.BandeiraCartao;
 
 import lombok.Data;
