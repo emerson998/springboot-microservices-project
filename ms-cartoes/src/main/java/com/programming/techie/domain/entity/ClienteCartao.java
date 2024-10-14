@@ -2,6 +2,7 @@ package com.programming.techie.domain.entity;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,6 +22,8 @@ public class ClienteCartao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column
 	private String cpf;
 	
 	
@@ -28,6 +31,7 @@ public class ClienteCartao {
 	@JoinColumn(name = "id_cartao")
 	private Cartao cartao;
 	
+	@Column
 	private BigDecimal limite;
 
 
