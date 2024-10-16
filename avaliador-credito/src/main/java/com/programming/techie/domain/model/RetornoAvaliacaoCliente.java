@@ -5,11 +5,9 @@ import java.util.List;
 import lombok.Builder;
 import lombok.Data;
 
-@Builder
-@Data
-public class SituacaoCliente {
+@Data @Builder
+public class RetornoAvaliacaoCliente {
 	
-	private DadosCliente cliente;
-	private List<CartaoCliente> cartoes;
+	List<CartaoAprovado> cartoes;
 
 }
