@@ -2,6 +2,7 @@ package com.programming.techie.domain.service;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
@@ -10,11 +11,15 @@ import org.springframework.stereotype.Service;
 
 import com.programming.techie.domain.exception.DadosNotFoundException;
 import com.programming.techie.domain.exception.ErroComunicacaoMicroservicesException;
+import com.programming.techie.domain.exception.ErroSolicitacaoCartaoException;
+import com.programming.techie.domain.infra.mq.SolicitacaoEmissaoCartaoPublisher;
 import com.programming.techie.domain.model.Cartao;
 import com.programming.techie.domain.model.CartaoAprovado;
 import com.programming.techie.domain.model.CartaoCliente;
 import com.programming.techie.domain.model.DadosAvialiacao;
 import com.programming.techie.domain.model.DadosCliente;
+import com.programming.techie.domain.model.DadosSolicitacaoEmissaoCartao;
+import com.programming.techie.domain.model.ProtocoloSolicitacaoCartao;
 import com.programming.techie.domain.model.RetornoAvaliacaoCliente;
 import com.programming.techie.domain.model.SituacaoCliente;
 import com.programming.techie.infra.clients.CartoesResourceClient;
@@ -30,6 +35,8 @@ public class AvalidadorCreditoService {
 	private final ClienteResourceClient clientResourceClient;
 	
 	private final CartoesResourceClient cartoesResourceClient;
+	
+	private final SolicitacaoEmissaoCartaoPublisher emissaoCartaoPublisher;
 
 	
 	public SituacaoCliente obterSituacaoCliente(String cpf) {
@@ -97,6 +104,18 @@ public class AvalidadorCreditoService {
 			}
 		}
 	}
+	
+	public ProtocoloSolicitacaoCartao solicitarEmissaoCartao(DadosSolicitacaoEmissaoCartao dados) {
+		try {
+			emissaoCartaoPublisher.solicitarCartao(dados);
+			var protocolo = UUID.randomUUID().toString();
+			
+			return new ProtocoloSolicitacaoCartao(protocolo);
+		} catch (Exception e) {
+			throw new ErroSolicitacaoCartaoException(e.getMessage());
+		}
+	}
+	
 		
 
 }

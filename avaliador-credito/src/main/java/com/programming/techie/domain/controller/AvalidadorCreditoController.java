@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.programming.techie.domain.exception.DadosNotFoundException;
 import com.programming.techie.domain.exception.ErroComunicacaoMicroservicesException;
+import com.programming.techie.domain.exception.ErroSolicitacaoCartaoException;
 import com.programming.techie.domain.model.DadosAvialiacao;
+import com.programming.techie.domain.model.DadosSolicitacaoEmissaoCartao;
+import com.programming.techie.domain.model.ProtocoloSolicitacaoCartao;
 import com.programming.techie.domain.model.RetornoAvaliacaoCliente;
 import com.programming.techie.domain.model.SituacaoCliente;
 import com.programming.techie.domain.service.AvalidadorCreditoService;
@@ -60,6 +63,18 @@ public class AvalidadorCreditoController {
 			return ResponseEntity.status(HttpStatus.resolve(e.getStatus())).body(e.getMessage());
 		}
 	}
+	
+	@PostMapping("/solicitacoes-cartao")
+	public ResponseEntity solicitarCartao(@RequestBody DadosSolicitacaoEmissaoCartao dados){
+		try {
+			ProtocoloSolicitacaoCartao protocolo = avaliadorCreditoService.solicitarEmissaoCartao(dados);
+			
+			return ResponseEntity.ok(protocolo);
+		} catch (ErroSolicitacaoCartaoException e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+	}
+	}
+	
 
 
 

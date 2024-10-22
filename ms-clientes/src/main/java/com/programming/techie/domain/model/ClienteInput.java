@@ -2,6 +2,9 @@ package com.programming.techie.domain.model;
 
 import com.programming.techie.domain.entity.Cliente;
 
+import lombok.Data;
+
+@Data
 public class ClienteInput {
 	
 	private String cpf;
