@@ -40,7 +40,6 @@ public class AvalidadorCreditoService {
 		ResponseEntity<DadosCliente> dadosCliente = clientResourceClient.dadosCliente(cpf);
 		
 		List<CartaoCliente> cartaoCliente = cartoesResourceClient.listCartoesByCpf(cpf);
-
 		
 		return SituacaoCliente.builder()
 				.cliente(dadosCliente.getBody())

@@ -40,12 +40,12 @@ public class CartaoController {
 		cartaoService.save(cartaoInput.toModel());
 	}
 	
-	@GetMapping
+	@GetMapping(params = "renda")
 	public List<Cartao> getCartoesRendaAte(@RequestParam("renda") Long renda){
 		return cartaoService.recuperarCartoesPorRendaMenorIgual(renda);
 	}
 	
-	@GetMapping
+	@GetMapping(params = "cpf")
 	public List<CartaoClienteResponse> listCartoesByCpf(@RequestParam("cpf") String cpf){
 		return clienteCartaoService.listCartoesByCpf(cpf);
 	}
