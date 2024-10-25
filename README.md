@@ -20,14 +20,16 @@ Esta aplicação bancária foi desenvolvida para gerenciar o cadastro de cartõe
 
 - **RabbitMQ**: Para a mensageria assíncrona.
 - **Java/Spring Boot**: Para o desenvolvimento dos serviços.
-- **Banco de Dados**: Para a persistência de dados.
+- **Banco de Dados**: MySQL para a persistência de dados.
 
 ## Como Executar
 
-1. **Configurar o RabbitMQ**: Certifique-se de que o RabbitMQ está instalado e em execução.
-2. **Configurar o Banco de Dados**: Ajuste as configurações de conexão no arquivo de propriedades da aplicação.
+1. **Rodar o RabbitMQ no Docker**:  
+   Se você deseja rodar o RabbitMQ no Docker, utilize o seguinte comando:
+
+   ```bash
+   docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:4.0-management
+
+2. **Configurar o Banco de Dados**: Ajuste as configurações de conexão no arquivo de propriedades da aplicação para conectar ao MySQL.
+
 3. **Executar a Aplicação**: Inicie a aplicação e utilize os endpoints disponíveis para cadastro e consulta de cartões.
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests para melhorias.
