@@ -2,6 +2,7 @@ package com.programming.techie.domain.entity;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -22,12 +23,17 @@ public class Cartao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column
 	private String nome;
 	
 	@Enumerated(EnumType.STRING)
 	private BandeiraCartao bandeira;
 	
+	@Column
 	private BigDecimal renda;
+	
+	@Column
 	private BigDecimal limiteBasico;
 	
 	public Cartao(String nome, BandeiraCartao bandeira, BigDecimal renda, BigDecimal limiteBasico) {

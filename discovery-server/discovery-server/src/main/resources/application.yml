@@ -1,0 +1,12 @@
+server:
+   port: 8761
+#   secutiry:
+#      basic:
+#       enabled: true
+#       user:
+#       name: cursoms-eureka-user
+#       password: 1234
+eureka:
+  client:
+   register-with-eureka: false
+   fetch-registry: false
