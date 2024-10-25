@@ -1,0 +1,54 @@
+# Compiled class files
+*.class
+
+# Logs
+*.log
+
+# Spring Boot specific
+/target/
+!.mvnw
+!.mvnw.cmd
+/.mvn/
+!/src/main/resources/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse
+.settings/
+.classpath
+.project
+bin/
+
+# Gradle
+.gradle/
+build/
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+dependency-reduced-pom.xml
+*.jar
+*.war
+
+# OS specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Others
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.user
+*.sublime-workspace
+
